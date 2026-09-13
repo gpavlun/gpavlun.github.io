@@ -1,0 +1,51 @@
+---
+import myImage from '../assets/horse.png';
+---
+
+<div class="corner-box">
+	<a href="/philosophy">
+		<img src={myImage.src} alt="Nice try, Oleg" />
+		<span class="tooltip">Nice try, Oleg</span>
+	</a>
+</div>
+
+<style>
+	.corner-box {
+		position: fixed;
+		bottom: 5px;
+		left: 5px;
+		height: 200px;
+	}
+
+	.corner-box img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+
+
+	.tooltip {
+		position: fixed;
+		display: none;
+		pointer-events: none;
+		background: black;
+		color: white;
+		padding: 5px 8px;
+		font-size: 14px;
+	}
+
+	.corner-box:hover .tooltip {
+		display: block;
+	}
+</style>
+
+<script>
+	const box = document.querySelector('.corner-box') as HTMLElement;
+	const tooltip = document.querySelector('.tooltip') as HTMLElement;
+
+	box?.addEventListener('mousemove', (e: MouseEvent) => {
+		tooltip.style.left = `${e.clientX + 15}px`;
+		tooltip.style.top = `${e.clientY + 15}px`;
+	});
+</script>
