@@ -1,214 +1,185 @@
 ---
-title: 'Markdown Style Guide'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-pubDate: 'Jun 19 2024'
-heroImage: '../../assets/blog-placeholder-1.jpg'
+title: 'My Shitty Attempt at a Programming Language'
+description: 'A brief introduction to my new programming language.'
+pubDate: 'Sep 21 2026'
+heroImage: '../../assets/Small_GLANG.png'
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+# G Language Overview
 
-## Headings
+## Purpose
+This language was originally inspired by an esoteric language called 'brainfuck'.
+Brainfuck is interesting for a number of reasons, but one thing that caught my eye
+way this example from wikipedia
+![brainfuck](brainfuck.png)
+What I found interesting was that general text could be written without needing to
+specify that it was a comment. There were some restrictions, including the special 
+operators that brainfuck uses, but generally a person could simply write whatever
+they wanted, wherever they whanted, and it would be fine.
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+This was only a valid code design, however, because the operator set was so small
+that you didn't really need any of them to write what you wanted to say. This led
+me to the question that ultimately started this journey
+> Can you make a useful programming language that can differentiate comments from code without special identifiers?
 
-# H1
+The answer to that question, surprisingly, is yes.
 
-## H2
+## Basic Structure
 
-### H3
+G as a language is broken into two primitive elements, **code** and **prose**.
+Prose is any general, plain text that is not intended to be executed. The goal for
+this language was that prose could be written anywhere in the code, without needing
+any kind of indicator. Code, on the other hand, is actual executable instructions.
+I will go into great detail about the lexical and grammatical structure of G much
+later, for those interested, but for now I want to show off some G.
 
-#### H4
+#### ROT13 in G
+---
+```c
+plain text prose can go pretty freely in the code
+char: rot13(char: c) {
+    there is very little restriction on where you can 
+    write prose
 
-##### H5
+    if(c >= 'a' && c <= 'z')
+      return('a' + (c - 'a' + 13) % 26);
+    
+    prose cannot be within a single statement
+    unless that statement is scoped
+    
+    if(c >= 'A' && c <= 'Z'){
+      this prose is valid, since the expression is
+      scoped with the braces
+      return('A' + (c - 'A' + 13) % 26);
+    }
+    return(c);
+}
 
-###### H6
+int: main(){
+    comments can go before int: c; or after
+    a statement,, so that declaration will
+    be executed
 
-## Paragraph
-
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
-
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
-
-## Images
-
-### Syntax
-
-```markdown
-![Alt text](./full/or/relative/path/of/image)
+    while((c = getchar()) != EOF)
+        putchar(rot13(c));
+    
+    return(0);
+}
 ```
+For clarity, the 'c' identifier is used when code blocking this. It is labled as C
+since there is not currently support for this language in the Github markdown processor.
 
-### Output
+The reason this works comes down to how code is actually defined in G. Code is really
+relagated to a few primitive constructs, those being
+- declarations
+- statements
+- expressions
+- definitions
 
-![blog placeholder](../../assets/blog-placeholder-about.jpg)
+Any text that does not fall into the signature of these categories is classed as prose.
+This means that prose does have some restrictions, though they are pretty generous. The
+restrictions on prose are that it cannot
+- contain an operator
+- contain grouping symbols
+- split a primitive construct before it finishes
 
-## Blockquotes
+This may seem fairly restrictive, but once you get used to the setup it feels quite natural.
+There are no reserved 'words' in G, so you can use `int`, `return`, `if`, etc freely in prose.
 
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+One thing to note , is that some chars are explicitly unreserved to allow things
+like a limited set markdown to be written in the program. That essentially means that if you
+change the extension on a .g file to .md, you could read it like a markdown document. Specifically
+hashtag and triple dash were left alone.
 
-### Blockquote without attribution
+Another important idea is the **prose escape**. A prose escape is identified with backtick, ( \` ), 
+and is used when you want to show an explicite G operator in your prose. The interesting part is that
+markdown will consume this as a code block, so it is naturally compatible, as you would really only
+use it when you want to identify code.
 
-#### Syntax
+So the first question would get about this is "what if I want to comment out my code?" and that
+is very simple, since G just has regular comment expressions as well
+```c
+  // double slash indicates single line comments
+  /*
+      block comments can be done with slash star,
+      this is all pretty standard. Due to how G is
+      structured, you could just use a prose escape.
 
-```markdown
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+      The reason you would not do this is because
+      a comment is explicitely meant to be code that
+      is not currently being used, whereas prose is
+      actual documentation.
+  */
 ```
+That pretty much covers the unique part of the challenge for G, but I ended up doing a lot more
+with this language than I originally expected. Here are some other examples.
+```c
+Inline function definitions
+int: add(int: x; int: y) return(x + y);  
 
-#### Output
+Scoped fucntion defintions
+void: foo(){
+  int: add(int: x; int: y){
+    return(x + y); 
+  }
+  so you can make a call from within
+  print(add(6, 7));
+}
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+Declaration chaining
+int:add(int: x; int: y), 
+    sub(int: x; int: y),
+    mul(int: x; int: y);
 
-### Blockquote with attribution
+private:{
+  int:{
+    these guys all have the type `private, int:`
+    add(int: x; int: y);
+    sub(int: x; int: y);
+    mul(int: x; int: y);
+  }
+  where as this is `private, float`
+  float: x, y, z;
+}
 
-#### Syntax
+Conditionals and loops can be expressions
+int: x = if(c) 5 else 4; is perfectly valid
 
-```markdown
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+Basic Object Oriented Programming
+
+struct: mystruct{ 
+  private:{
+    int: x, y, z; 
+  }
+
+  int: getX() return(self->x);
+} 
 ```
+G also has something that is a unique to it, which I came up with and later
+found out that Python already did (it's not the same, but it looks the same).
+The unique control flow object is called a **while-else** statement or expression.
+The else is essentially a case for when the loop never enters, so you have a
+fallback condition baked in.
+```c
+ int: i = 0, 
+      value = while(i<x; int: result = 0){
+      if(i == limit) break();
 
-#### Output
+      if(i%2 == 0)  result += i;
+      else result -= i;
 
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
+      i+=1;
 
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
-
-## Tables
-
-### Syntax
-
-```markdown
-| Italics   | Bold     | Code   |
-| --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
+      if(x > 100) return(x);
+  } else {
+      x;
+  };
 ```
+So the declared variable in the argument is where the result of the expression will
+be stored, so `value` will be set to whatever result is at the end of the loop. Should
+the loop never enter, however, it will be set to the else conditions final expression.
 
-### Output
-
-| Italics   | Bold     | Code   |
-| --------- | -------- | ------ |
-| _italics_ | **bold** | `code` |
-
-## Code Blocks
-
-### Syntax
-
-we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
-
-````markdown
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-````
-
-### Output
-
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Example HTML5 Document</title>
-  </head>
-  <body>
-    <p>Test</p>
-  </body>
-</html>
-```
-
-## List Types
-
-### Ordered List
-
-#### Syntax
-
-```markdown
-1. First item
-2. Second item
-3. Third item
-```
-
-#### Output
-
-1. First item
-2. Second item
-3. Third item
-
-### Unordered List
-
-#### Syntax
-
-```markdown
-- List item
-- Another item
-- And another item
-```
-
-#### Output
-
-- List item
-- Another item
-- And another item
-
-### Nested list
-
-#### Syntax
-
-```markdown
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
-```
-
-#### Output
-
-- Fruit
-  - Apple
-  - Orange
-  - Banana
-- Dairy
-  - Milk
-  - Cheese
-
-## Other Elements — abbr, sub, sup, kbd, mark
-
-### Syntax
-
-```markdown
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
-```
-
-### Output
-
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+G is still new and has a lot of changes yet to be made. I plan to implement verlig-like
+bitwise reductions and expand heavily on the C unary operations. This has been a super
+fun project and I have enjoyed it a lot. I have a github repo with G open to the public
+if anyone wants to mess with the ANTLR code for the parser
