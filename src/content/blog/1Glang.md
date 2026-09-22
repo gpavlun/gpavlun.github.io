@@ -5,6 +5,13 @@ pubDate: 'Sep 21 2026'
 heroImage: '../../assets/Small_GLANG.png'
 ---
 
+<BaseHead
+	title="My Website"
+	description="A brief introduction to G."
+	image={../../assets/Glang_logo.png}
+/>
+
+
 # G Language Overview
 
 ## Purpose
