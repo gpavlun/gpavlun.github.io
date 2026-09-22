@@ -181,5 +181,7 @@ the loop never enter, however, it will be set to the else conditions final expre
 
 G is still new and has a lot of changes yet to be made. I plan to implement verlig-like
 bitwise reductions and expand heavily on the C unary operations. This has been a super
-fun project and I have enjoyed it a lot. I have a github repo with G open to the public
-if anyone wants to mess with the ANTLR code for the parser
+fun project and I have enjoyed it a lot. I have a public github repo with G source 
+if anyone wants to mess with the ANTLR code for the parser.
+
+[https://github.com/gpavlun/glang/tree/main](https://github.com/gpavlun/glang/tree/main)
