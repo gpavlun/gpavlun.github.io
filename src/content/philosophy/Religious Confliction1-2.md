@@ -1,6 +1,6 @@
 ---
-title: 'Religious Confliction (1/2)'
-description: 'Lorem ipsum dolor sit amet'
+title: 'On the matter of Religion (1/2)'
+description: 'Lorem ipsum lolor sit amet'
 pubDate: '21 September 2026'
 heroImage: '../../assets/thunder_cross.jpg'
 ---
