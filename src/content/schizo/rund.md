@@ -10,7 +10,7 @@ that the conflict of the modern day is between the rich and poor, which is the
 same conflict of all history. the haves and the have-nots, so to speak.
 
 the nazis are dumb, they fell for the plot, the haves created the racial divide
-to hide what they were doing in their hight castles. they created a race war to
+to hide what they were doing in their high castles. they created a race war to
 distract from the class war. the nazis, though, they took the idea of the race
 war, which the crawling masses love to hate, then they wrapped the class war in
 a race war. what the nazis hate is the ruling class, but if they pretend the
