@@ -1,5 +1,5 @@
 ---
-title: 'A Horse with no Name'
+title: '( raw ) A Horse with no Name'
 description: 'borderling schizio'
 pubDate: '29 September 2026'
 heroImage: '../../assets/mari.jpg'
@@ -132,7 +132,7 @@ of his name. I would say there is a reason such a name is few and far between. I
   <iframe
     width="529"
     height="940"
-    src="[https://www.youtube.com/embed/OWXFIOqdAZs](https://www.youtube.com/embed/OWXFIOqdAZs)"
+    src="https://www.youtube.com/embed/fpvbJ9p6v6g"
     title="MIKE TYSON WANTS TO FIGHT ACHILLES!"
     frameborder="0"
     style="max-width: 100%; aspect-ratio: 529 / 940; height: auto;"
@@ -141,6 +141,7 @@ of his name. I would say there is a reason such a name is few and far between. I
     allowfullscreen>
   </iframe>
 </div>
+
 Disregarding the typical youtube bullshit, to see that name come up when discussing the greatest fighter of all time
 speaks more to me than anything else could.
 

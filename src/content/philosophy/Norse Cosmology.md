@@ -1,5 +1,5 @@
 ---
-title: 'Ragnarök and Its Place in the Modern Day'
+title: 'Ragnarök Analysis from First Principles'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: '12 September 2026'
 heroImage: '../../assets/fen.jpg'
