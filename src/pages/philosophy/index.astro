@@ -7,7 +7,6 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-
 const posts = (await getCollection('philosophy')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
@@ -17,10 +16,34 @@ const posts = (await getCollection('philosophy')).sort(
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
 		<style>
 			main {
 				width: 960px;
 			}
+
+			.category-nav {
+				display: flex;
+				justify-content: center;
+				gap: 1.5rem;
+				margin-bottom: 2rem;
+			}
+
+			.category-nav button {
+				background: none;
+				border: none;
+				padding: 0;
+				color: rgb(var(--gray));
+				font-family: inherit;
+				font-size: 1rem;
+				cursor: pointer;
+			}
+
+			.category-nav button:hover,
+			.category-nav button.active {
+				color: rgb(var(--accent));
+			}
+
 			ul {
 				display: flex;
 				flex-wrap: wrap;
@@ -29,72 +52,105 @@ const posts = (await getCollection('philosophy')).sort(
 				margin: 0;
 				padding: 0;
 			}
+
 			ul li {
 				width: calc(50% - 1rem);
 			}
+
+			ul li.hidden {
+				display: none;
+			}
+
 			ul li * {
 				text-decoration: none;
 				transition: 0.2s ease;
 			}
+
 			ul li:first-child {
 				width: 100%;
 				margin-bottom: 1rem;
 				text-align: center;
 			}
+
 			ul li:first-child img {
 				width: 100%;
 			}
+
 			ul li:first-child .title {
 				font-size: 2.369rem;
 			}
+
 			ul li img {
 				margin-bottom: 0.5rem;
 				border-radius: 12px;
 			}
+
 			ul li a {
 				display: block;
 			}
+
 			.title {
 				margin: 0;
 				color: rgb(var(--black));
 				line-height: 1;
 			}
+
 			.date {
 				margin: 0;
 				color: rgb(var(--gray));
 			}
+
 			ul li a:hover h4,
 			ul li a:hover .date {
 				color: rgb(var(--accent));
 			}
+
 			ul a:hover img {
 				box-shadow: var(--box-shadow);
 			}
+
 			@media (max-width: 720px) {
+				.category-nav {
+					gap: 1rem;
+					flex-wrap: wrap;
+				}
+
 				ul {
 					gap: 0.5em;
 				}
+
 				ul li {
 					width: 100%;
 					text-align: center;
 				}
+
 				ul li:first-child {
 					margin-bottom: 0;
 				}
+
 				ul li:first-child .title {
 					font-size: 1.563em;
 				}
 			}
 		</style>
 	</head>
+
 	<body>
 		<Header />
+
 		<main>
+			<nav class="category-nav" aria-label="Philosophy categories">
+				<button class="active" data-filter="all">ALL</button>
+				<button data-filter="essay">ESSAYS</button>
+				<button data-filter="reflection">REFLECTIONS</button>
+				<button data-filter="meditation">MEDITATIONS</button>
+			</nav>
+
 			<section>
 				<ul>
 					{
 						posts.map((post) => (
-							<li>
+							<li class="post" data-type={post.data.type}>
 								<a href={`/philosophy/${post.id}/`}>
 									{post.data.heroImage && (
 										<Image width={720} height={360} src={post.data.heroImage} alt="" />
@@ -110,6 +166,31 @@ const posts = (await getCollection('philosophy')).sort(
 				</ul>
 			</section>
 		</main>
+
 		<Footer />
+
+		<script>
+			const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+			const posts = document.querySelectorAll<HTMLLIElement>('.post');
+
+			buttons.forEach((button) => {
+				button.addEventListener('click', () => {
+					const filter = button.dataset.filter;
+
+					buttons.forEach((button) => button.classList.remove('active'));
+					button.classList.add('active');
+
+					posts.forEach((post) => {
+						const type = post.dataset.type;
+
+						if (filter === 'all' || type === filter) {
+							post.classList.remove('hidden');
+						} else {
+							post.classList.add('hidden');
+						}
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

@@ -29,6 +29,7 @@ const philosophy = defineCollection({
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
 			heroImage: z.optional(image()),
+			type: z.enum(['essay', 'reflection', 'meditation']).optional(),
 		}),
 });
 

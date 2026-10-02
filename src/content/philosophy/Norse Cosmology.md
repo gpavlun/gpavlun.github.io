@@ -3,6 +3,7 @@ title: 'Ragnarök Analysis from First Principles'
 description: 'Lorem ipsum dolor sit amet'
 pubDate: '12 September 2026'
 heroImage: '../../assets/fen.jpg'
+type: "essay"
 ---
 ## An Idiot's Notes on the Norse Ragnarök and an Anachronistic Attempt to Transpose it Onto the Modern Day
 

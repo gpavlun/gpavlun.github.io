@@ -1,8 +1,9 @@
 ---
-title: 'On the matter of Religion (1/2)'
+title: 'Religion and Faith (1/2)'
 description: 'Lorem ipsum lolor sit amet'
 pubDate: '21 September 2026'
 heroImage: '../../assets/thunder_cross.jpg'
+type: "reflection"
 ---
 I would begin this by saying that is will be far more ramble-y than a typical essay would be.
 I do not have an exact plan for how I want this to go, since it serves as more of a culmination

@@ -1,8 +1,9 @@
 ---
-title: '( raw ) A Horse with no Name'
+title: 'A Horse with no Name'
 description: 'borderling schizio'
 pubDate: '29 September 2026'
 heroImage: '../../assets/mari.jpg'
+type: "meditation"
 ---
 
 What is the inspiration when the situation calls for desperation? Whilst this I cannot answer,

@@ -5,15 +5,24 @@ pubDate: '01 01 3000'
 heroImage: '../../assets/fuckinglaughingmyassoff.png'
 ---
 
-This page is essentially a philosophy blog for me to dump my thoughts into. If you try to read this straight through, it will probably not be an enjoyable experience. There are two types of articles here, *principle* and *raw*.
+This page is essentially a philosophy blog for me to dump my thoughts into. If you try to read this straight through, it will probably not be an enjoyable experience. There are now three types of articles here, *ESSAYS*, *REFLECTIONS*, and *MEDITATIONS*.
 
-The principle articles will have the normal names and tend to be more well thought out and have more carefully constructed arguments.
+The essays section will likely be the best read for most people. That section is meant to be formalized thoughts, with structured formats and intelligible
+dialogue. The purpose of an essay is to make a point, to try and argue something. This means that most of these will be more intellectually interesting
+than the other categories, but it should be understood that they are not for entertainment, but rather analysis of a particular concept.
 
-The raw category will always be denoted with `(raw)` prefixed to the name. A raw document is almost always written late at night and will be a single stream of consciousness from start to finish. The raw text is meant to be a collection of thoughts that eventually led to the principle article. I would suggest reading them; I think they tend to capture the essence of what I am saying better than the articles do. However, they also have the issue of being generally incomprehensible, poorly laid out, and prone to tangenting into the abyss.
+Reflections are personal articles that are meant to discuss experiences I have had. The general purpose for me writing these is to work through some of
+my own experiences, which are not meant to be broadly applicable in most contexts. Reading these will probably be somewhat boring if you do not have any
+familiarity with the subject matter being discussed. You might find the idea of a religious discussion interesting, but you will not be prepared for the
+history lesson and how I believe it plays into the modern understanding of faith and why I do not agree with it.
 
-Some articles are written in multiple parts. They will have an `(i/c)` tag on them, where `i` is the current index and `c` is the total count of items in the array. They will be in order from most recent to least recent, but they may be separated by other documents in between.
+The last category is meditations, which are probably the least friendly of all the writings here. They are all completely inane ramblings that do have a
+point and are meant to convey something, but what that is will be very hard to dicipher for most people. These articles are objectively how I think, but
+reading a continuous stream of consciousness from my mind is not pleasant if you do not know about every niche concept I reference or alude to. These are 
+my favorite writings, but I would not generally recommend reading them. Often, meditations will graduate into full essays or reflections, so if you see
+multiple posts with the same name, that is why. The non-meditation versions are very different structurally from the originals.
 
-Overall, these texts represent thoughts that I carry at a particular point in time. These opinions can and will change, so take the things you read here with a grain of salt.
+The 'all' tab just shows everything, so I would suggest filtering into one of the other categories as it interests you.
 
 The final point I will make is about the schizo terminology. I am, in truth, actually insane. That being said, I do not *believe* I am schizophrenic. I have not been diagnosed with this, nor do I claim to be. I am, however, likely antisocial and suffer from depressive and manic swings somewhat regularly. I am in good control of myself and do not allow these states to control my life, but it should be known that most of what the raw texts come from is me allowing these mood swings to throw me around.
 
