@@ -64,7 +64,7 @@ horse does not mean much to me at all, in truth. So what is the point of these t
 ones left behind? As I see it, the best version of the story would be one in which the name of the individual preserves them unto the
 ages, without losing the thing that made them who they are.
 
-## A Horse name Roach
+## A Horse named Roach
 For those of you familiar with the Witcher series, you may be aware of the protagonists horse, Roach. The thing that stands out about
 Roach is that he is not a single horse. No, instead every horse that the witcher owns over the course of his life gets the same name.
 This seemed odd to me at first, as I felt it was cruel to the horse. This is because the self would be lost among a dozen beasts with the same
