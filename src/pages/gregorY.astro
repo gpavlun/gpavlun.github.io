@@ -1,0 +1,72 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { getCollection, render } from 'astro:content';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const writing = await getCollection('writing');
+
+console.log('WRITING ENTRIES:', writing.map((entry) => ({
+	id: entry.id,
+	data: entry.data,
+})));
+
+const entry = writing.find((item) => item.id.toLowerCase() === 'gregory');
+
+if (!entry) {
+	throw new Error(
+		`Could not find gregorY.md. Available entries: ${writing
+			.map((item) => item.id)
+			.join(', ')}`
+	);
+}
+
+const { Content } = await render(entry);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={entry.data.title}
+			description={entry.data.description}
+		/>
+	</head>
+
+	<body>
+		<Header />
+
+		<main>
+			<article class="content">
+				<Content />
+			</article>
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style>
+	main {
+		width: 100%;
+	}
+
+	.content {
+		width: 720px;
+		max-width: calc(100% - 2em);
+		margin: 0 auto;
+		padding: 2em 1em;
+		color: rgb(var(--gray-dark));
+	}
+
+	.content p {
+		line-height: 1.7;
+		margin-bottom: 1.5em;
+	}
+
+	.content img {
+		max-width: 100%;
+		height: auto;
+	}
+</style>
